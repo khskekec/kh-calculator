@@ -3,18 +3,18 @@ import {useMemo, useState} from "react";
 import classname from 'classname';
 
 function App() {
-    const [carbonhydrates, setCarbonHydrates] = useState();
+    const [carbonHydrates, setCarbonHydrates] = useState();
     const [weight, setWeight] = useState();
-    const result = useMemo(() => carbonhydrates / 100 * weight, [carbonhydrates, weight]);
+    const result = useMemo(() => carbonHydrates / 100 * weight, [carbonHydrates, weight]);
 
-    console.log({carbonhydrates, weight, result});
     return (
         <div className='d-flex'>
             <div className='container-fluid container-md mt-auto'>
+                <h1 className='text-center mb-5 body-caption'>💖 Hi Jana 💖</h1>
                 <div className="mb-5">
                     <label htmlFor="carbonhydratesInput" className="form-label fw-bold">Kohlenhydrate pro 100g</label>
                     <input type="number" className="form-control form-control-lg" id="carbonhydratesInput"
-                           placeholder="Kohlenhydrate pro 100g" value={carbonhydrates}
+                           placeholder="Kohlenhydrate pro 100g" value={carbonHydrates}
                            onChange={e => setCarbonHydrates(e.target.value)}/>
                 </div>
                 <div className="mb-5">
@@ -22,9 +22,9 @@ function App() {
                     <input type="number" className="form-control form-control-lg" id="weightInput"
                            placeholder="Gewicht in Gramm" value={weight} onChange={e => setWeight(e.target.value)}/>
                 </div>
-                <div className={classname('text-center badge bg-secondary d-flex', {'bg-danger': !result || result === 0})}
-                     style={{whitespce: 'break-spaces', padding: 50}}>
-                    <h1 className='mb-0 text-center w-100'>{result ? result.toLocaleString('de-DE', {minimumFractionDigits: 0}) + ' KH' : 'Bitte beide Felder ausfüllen!'}</h1>
+                <div className={classname('text-center badge bg-pink d-flex')}
+                     style={{padding: 50}}>
+                    <h1 className='mb-0 text-center w-100' style={{whiteSpace: 'normal'}}>{result ? result.toFixed(2).replace('.', ',') + ' gKH' : 'Bitte beide Felder ausfüllen!'}</h1>
                 </div>
             </div>
         </div>

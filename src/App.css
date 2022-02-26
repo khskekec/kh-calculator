@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'special';
+    src: url('./fonts/LadylikeBB.ttf') format("truetype");
+}
+
+body {
+    background-image: url("https://images.freecreatives.com/wp-content/uploads/2016/04/cute-girly-wallpaper-for-iphone.jpg");
+    background-size: cover;
+}
+
+.body-caption {
+    font-size: 5rem;
+    font-weight: 900;
+    font-family: special;
+    color: #fff;
+}
+
+.bg-pink {
+    background-color: #e876df !important;
+}
