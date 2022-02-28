@@ -3,8 +3,8 @@ import {useMemo, useState} from "react";
 import classname from 'classname';
 
 function App() {
-    const [carbonHydrates, setCarbonHydrates] = useState();
-    const [weight, setWeight] = useState();
+    const [carbonHydrates, setCarbonHydrates] = useState('');
+    const [weight, setWeight] = useState('');
     const result = useMemo(() => carbonHydrates / 100 * weight, [carbonHydrates, weight]);
 
     return (
@@ -24,7 +24,8 @@ function App() {
                 </div>
                 <div className={classname('text-center badge bg-pink d-flex')}
                      style={{padding: 50}}>
-                    <h1 className='mb-0 text-center w-100' style={{whiteSpace: 'normal'}}>{result ? result.toFixed(2).replace('.', ',') + ' gKH' : 'Bitte beide Felder ausfüllen!'}</h1>
+                    <h1 className='mb-0 text-center w-100'
+                        style={{whiteSpace: 'normal'}}>{result ? result.toFixed(2).replace('.', ',') + ' gKH' : 'Bitte beide Felder ausfüllen!'}</h1>
                 </div>
             </div>
         </div>
